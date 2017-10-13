@@ -63,6 +63,7 @@ SET(CORE_HEADER
 ${DAVINCI_INC_DIR}/constant.h
 ${DAVINCI_INC_DIR}/svector.h
 ${DAVINCI_INC_DIR}/utility.h
+${DAVINCI_INC_DIR}/DError.h
 ${DAVINCI_INC_DIR}/GLError.h
 ${DAVINCI_INC_DIR}/GLFrameBufferObject.h
 ${DAVINCI_INC_DIR}/GLTexture3D.h
@@ -164,9 +165,9 @@ ADD_LIBRARY(
     )
 
 if(${UNIX})
-    TARGET_LINK_LIBRARIES(${PROJECT_NAME} GLEW glut GLU freetype)
+    TARGET_LINK_LIBRARIES(${PROJECT_NAME} GLEW glut GLU freetype ${LIBS})
 else()
-    TARGET_LINK_LIBRARIES(${PROJECT_NAME} glew freeglutd freetype)
+    TARGET_LINK_LIBRARIES(${PROJECT_NAME} glew freeglutd freetype ${LIBS})
 endif()
 
 SET_PROPERTY(TARGET Davinci PROPERTY FOLDER davinci)

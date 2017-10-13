@@ -79,23 +79,53 @@ set(DAVINCI_SRC_DIR "${DAVINCI_ROOT_DIR}/src")
 set(DAVINCI_LIB_DIR "${LIBRARY_OUTPUT_PATH}")
 
 #Prompt user to specify glew installation root.
-SET(GLEW_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/freeglut-2.8.1" CACHE PATH
-    "Please specify glew installation directory")
-SET(GLEW_INC_DIR "${GLEW_ROOT_DIR}/include")
-SET(GLEW_LIB_DIR "${GLEW_ROOT_DIR}/lib")
-SET(GLEW_LIB_DIR "${GLEW_ROOT_DIR}/lib/${PLATFORM_NAME}")
-MESSAGE("glew root dir: ${GLEW_ROOT_DIR}")
-MESSAGE("glew lib dir: ${GLEW_LIB_DIR}")
+FIND_PACKAGE(GLEW QUIET)
+IF(GLEW_FOUND)
+    MESSAGE("glew is found!")
+ELSE()
+    MESSAGE("\nglew cannot be automatically detected on your machine.")
+    MESSAGE("Please install and manually set glew root: GLEW_ROOT_DIR in the cmake")
+    SET(GLEW_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/glew" CACHE PATH
+        "Please specify glew installation directory")
+    SET(GLEW_INCLUDE_DIRS "${GLEW_ROOT_DIR}/include")
+    SET(GLEW_LIB_DIR "${GLEW_ROOT_DIR}/lib")
+    IF(WIN32)
+        SET(GLEW_LIBRARIES "glew")
+        SET(GLEW_LIB_DIR2 "${GLEW_LIB_DIR}/${PLATFORM_NAME}")
+    ELSE()
+        SET(GLEW_LIBRARIES "GLEW")
+    ENDIF()
+    MESSAGE("glew root dir GLEW_ROOT_DIR is set to: ${GLEW_ROOT_DIR}")
+    MESSAGE("glew possible lib dir: ${GLEW_LIB_DIR}")
+    MESSAGE("glew possible lib dir: ${GLEW_LIB_DIR2}")
+ENDIF()
+
+SET(INCS ${INCS} ${GLEW_INCLUDE_DIRS})
+SET(LIBS ${LIBS} ${GLEW_LIBRARIES})
 
 #Prompt user to specify freeglut installation root.
-SET(FREEGLUT_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/freeglut-2.8.1" CACHE PATH
-    "Please specify freeglut installation directory")
-SET(FREEGLUT_INC_DIR "${FREEGLUT_ROOT_DIR}/include")
-SET(FREEGLUT_LIB_DIR "${FREEGLUT_ROOT_DIR}/lib")
-MESSAGE("freeglut root dir: ${FREEGLUT_ROOT_DIR}")
-MESSAGE("freeglut lib dir: ${FREEGLUT_LIB_DIR}")
-MESSAGE("freeglut lib dir: ${FREEGLUT_LIB_DIR}/${PLATFORM_NAME}")
-MESSAGE("freeglut bin dir: ${FREEGLUT_BIN_DIR}")
+FIND_PACKAGE(FREEGLUT QUIET)
+IF(FREEGLUT_FOUND)
+    MESSAGE("freeglut is found!")
+ELSE()
+    MESSAGE("\nfreeglut cannot be automatically detected on your machine.")
+    MESSAGE("Please install and manually set freeglut root: FREEGLUT_ROOT_DIR in the cmake.")
+    SET(FREEGLUT_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/freeglut" CACHE PATH
+        "Please specify freeglut installation directory")
+    SET(FREEGLUT_INCLUDE_DIRS "${FREEGLUT_ROOT_DIR}/include")
+    SET(FREEGLUT_LIB_DIR "${FREEGLUT_ROOT_DIR}/lib")
+    SET(FREEGLUT_LIBRARIES "freeglut")
+    IF(WIN32)
+        SET(FREEGLUT_LIB_DIR2 "${FREEGLUT_LIB_DIR}/${PLATFORM_NAME}")
+    ENDIF()
+    MESSAGE("freeglut root dir FREEGLUT_ROOT_DIR is set to: ${FREEGLUT_ROOT_DIR}")
+    MESSAGE("freeglut possible lib dir: ${FREEGLUT_LIB_DIR}")
+    MESSAGE("freeglut possible lib dir: ${FREEGLUT_LIB_DIR2}")
+    MESSAGE("freeglut bin dir: ${FREEGLUT_BIN_DIR}")
+ENDIF()
+
+SET(INCS ${INCS} ${FREEGLUT_INCLUDE_DIRS})
+SET(LIBS ${LIBS} ${FREEGLUT_LIBRARIES})
 
 
 #Prompt user to specify freetype installation root.
@@ -103,29 +133,39 @@ OPTION(DAVANCI_ENABLE_TEXT_RENDERING "Enable text rendering (optional), requirin
 
 IF(DAVANCI_ENABLE_TEXT_RENDERING)
     ADD_DEFINITIONS(-DENABLE_TEXT_RENDERING)
-    SET(FREETYPE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/freetype-2.5.2" CACHE PATH
-        "Please specify freetype installation directory")
-    SET(FREETYPE_INC_DIR "${FREETYPE_ROOT_DIR}/include")
-    SET(FREETYPE_LIB_DIR "${FREETYPE_ROOT_DIR}/lib/${PLATFORM_NAME}")
-    MESSAGE("freetype root dir: ${FREETYPE_ROOT_DIR}")
-    MESSAGE("freetype lib dir: ${FREETYPE_LIB_DIR}")
+    FIND_PACKAGE(Freetype QUIET)
+    IF(FREETYPE_FOUND)
+        MESSAGE("freetype is found!")
+    ELSE()
+        SET(FREETYPE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/freetype-2.5.2" CACHE PATH
+            "Please specify freetype installation directory")
+        SET(FREETYPE_INCLUDE_DIRS "${FREETYPE_ROOT_DIR}/include")
+        SET(FREETYPE_LIB_DIR "${FREETYPE_ROOT_DIR}/lib")
+        SET(FREETYPE_LIBRARIES "freetype")
+        IF(WIN32)
+            SET(FREETYPE_LIB_DIR2 "${FREETYPE_ROOT_DIR}/lib/${PLATFORM_NAME}")
+        ENDIF()
+        MESSAGE("freetype root dir: ${FREETYPE_ROOT_DIR}")
+        MESSAGE("freetype lib dir: ${FREETYPE_LIB_DIR}")
+        MESSAGE("freetype lib dir: ${FREETYPE_LIB_DIR2}")
+    ENDIF()
 ENDIF()
+SET(INCS ${INCS} ${FREETYPE_INCLUDE_DIRS})
+SET(LIBS ${LIBS} ${FREETYPE_LIBRARIES})
 
 
 INCLUDE_DIRECTORIES(
 "${DAVINCI_INC_DIR}" 
-"${GLEW_INC_DIR}" 
-"${FREEGLUT_INC_DIR}"
-${FREETYPE_INC_DIR}
+${INCS}
 )
 
 LINK_DIRECTORIES(
-"${GLEW_LIB_DIR}" 
-"${GLEW_LIB_DIR}/${PLATFORM_NAME}" 
-"${FREEGLUT_LIB_DIR}" 
-"${FREEGLUT_LIB_DIR}/${PLATFORM_NAME}" 
+${GLEW_LIB_DIR} 
+${GLEW_LIB_DIR2} 
+${FREEGLUT_LIB_DIR} 
+${FREEGLUT_LIB_DIR2} 
 ${FREETYPE_LIB_DIR}
-${FREETYPE_LIB_DIR}/${PLATFORM_NAME}
+${FREETYPE_LIB_DIR2}
 )
 
 ADD_SUBDIRECTORY(src)
