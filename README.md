@@ -27,7 +27,7 @@ Under Mac OS X these dependencies can be installed using
 ## Compiling Source Code
 Building from the source code through CMake is easy:
 
-### 1.Create a build directory, and go into it
+### 1. Create a build directory
 ```
         mkdir davinci/build
         cd davinci/build
