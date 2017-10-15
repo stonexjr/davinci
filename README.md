@@ -1,5 +1,5 @@
 # davinci
-A lightweight graphics library (think about three.js as to webgl) in C++
+A lightweight 3D graphics library in C++, with object-oriented infrastructure module to makes programming OpenGL and managing graphics resource much easier.
 
 ## Prerequisites
 * You need any form of C++11 compiler and build tool [CMake](https://cmake.org/download/)
