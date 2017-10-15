@@ -42,7 +42,7 @@ In case cmake cannot find the dependencies, you can alway tell cmake where they 
 ```
         cmake -DGLEW_ROOT_DIR="path/to/glew_root" 
               -DFREEGLUT_ROOT_DIR="path/to/freeglut_root"
-              -DDAVANCI_ENABLE_TEXT_RENDERING="true"
+              -DDAVINCI_ENABLE_TEXT_RENDERING="true"
 
               ../path/to/davinci_source
 ```

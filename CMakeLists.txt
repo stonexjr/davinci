@@ -133,9 +133,9 @@ SET(LIBS ${LIBS} ${FREEGLUT_LIBRARIES})
 
 
 #Prompt user to specify freetype installation root.
-OPTION(DAVANCI_ENABLE_TEXT_RENDERING "Enable text rendering (optional), requiring installation of freetype first." OFF)
+OPTION(DAVINCI_ENABLE_TEXT_RENDERING "Enable text rendering (optional), requiring installation of freetype first." OFF)
 
-IF(DAVANCI_ENABLE_TEXT_RENDERING)
+IF(DAVINCI_ENABLE_TEXT_RENDERING)
     ADD_DEFINITIONS(-DENABLE_TEXT_RENDERING)
     FIND_PACKAGE(Freetype QUIET)
     IF(FREETYPE_FOUND AND FREETYPE_INCLUDE_DIRS)
