@@ -20,11 +20,13 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#include <GL/glew.h>
 #include "GLTextureAbstract.h"
 #include "GLError.h"
 #include <string>
 #include <sstream>
 #include <iostream>
+
 using namespace std;
 
 namespace davinci{
@@ -278,7 +280,7 @@ void GLTextureAbstract::deleteTexture()
 	}
 }
 
-void GLTextureAbstract::bindTexture(GLenum mode/*=GL_MODULATE*/)
+void GLTextureAbstract::bindTexture()
 {
 	if(m_texUnitId!=-1)
 	{
@@ -292,9 +294,6 @@ void GLTextureAbstract::bindTexture(GLenum mode/*=GL_MODULATE*/)
 	glActiveTexture(GL_TEXTURE0+m_texUnitId);
 	glBindTexture(m_target, m_texId);
 	//glEnable(m_target);//glEnable(GL_TEXTUREXD); deprecated in core profile.
-#if !defined(__APPLE__) || !defined(MACOSX)
-	//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, mode);//GL_DECAL
-#endif
 	if (m_samplerObj)
 	{
 		m_samplerObj->bind(m_texUnitId);

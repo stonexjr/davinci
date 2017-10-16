@@ -60,6 +60,7 @@ ${DAVINCI_SRC_DIR}/GLTriangleCleaner.cpp
 
 
 SET(CORE_HEADER
+${DAVINCI_INC_DIR}/davinci.h
 ${DAVINCI_INC_DIR}/constant.h
 ${DAVINCI_INC_DIR}/svector.h
 ${DAVINCI_INC_DIR}/utility.h

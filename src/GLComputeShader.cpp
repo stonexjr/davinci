@@ -24,6 +24,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <GL/glew.h>
 #include "vec2f.h"
 #include "vec3f.h"
 #include "vec4f.h"
@@ -140,17 +141,7 @@ void GLComputeShader::DestroyShaders(void)
 
 	m_uniforms.clear();
 
-	ErrorCheckValue = glGetError();
-	if (ErrorCheckValue != GL_NO_ERROR)
-	{
-		fprintf(
-				stderr,
-				"ERROR: Could not destroy the shaders: %s \n",
-				gluErrorString(ErrorCheckValue)
-				);
-
-		exit(-1);
-	}
+	GLError::glCheckError(__func__);
 }
 
 bool GLComputeShader::loadComputeShaderFile(const string& fileName )

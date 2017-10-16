@@ -21,9 +21,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
+#include <OpenGL/gl3.h>
 #else
 #include <GL/glew.h>
 #endif
@@ -50,7 +48,6 @@ GLError::~GLError(void)
 
 void GLError::glCheckError(const char* call)
 {
-    /*
 	char enums[][50] =
 	{
 		"invalid enumeration", // GL_INVALID_ENUM
@@ -67,19 +64,9 @@ void GLError::glCheckError(const char* call)
 		return;
 
 	errcode -= GL_INVALID_ENUM;
-	QString message;
-	message.sprintf("OpenGL %s in '%s'",enums[errcode], call);
-    ErrorMessage(message);
-    */
-
-	GLenum errcode = glGetError();
-	if (errcode == GL_NO_ERROR)
-		return;
-
-    std::stringstream message;
-    message << "OpenGL "<< gluErrorString(errcode)<<" in '" << call <<"'";
-    ErrorMessage(message.str());
-
+	std::stringstream message;
+	message << "OpenGL "<< enums[errcode]<<" in '" << call <<"'";
+	ErrorMessage(message.str());
 }
 
 void GLError::glCheckError( const std::string& call )
@@ -101,7 +88,7 @@ void GLError::ErrorMessage(const std::string &msg )
 
 #ifdef DEBUG
     std::vector<int> v;
-    v[10]=0;
+    v[10]=0;//make it crash
 #else
 	exit(1);
 #endif

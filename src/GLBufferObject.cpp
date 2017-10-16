@@ -106,7 +106,7 @@ void GLBufferObject::upload( size_t offset, size_t totalSizeInBytes,
 
 void GLBufferObject::copy(GLBufferObject &dest, size_t offsetRead, size_t offsetWrite, size_t size)
 {
-	if (size < 0)
+	if (size <= 0)
 	{
 		size = m_reservedBytes;
 	}

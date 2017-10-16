@@ -84,7 +84,7 @@ namespace davinci{
 			//Users are responsible to make sure the w and h and internalformat
 			//of pixelData match what they specified in the constructor method.
 			void   upload(int w, int h, const GLvoid *pixelData);
-			void   bindTexture(GLenum mode=GL_MODULATE);
+			void   bindTexture();
 			//Generate mipmap using specified quality hint
 			//hint could be: GL_FASTEST, GL_NICEST, GL_DONT_CARE
 			void   generateMipMap(GLint qualityHint=GL_FASTEST);

@@ -26,9 +26,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 #include <string>
 
 #if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
+#include <OpenGL/gl3.h>
 #else
 #include <GL/glew.h>
 #endif

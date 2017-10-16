@@ -40,7 +40,7 @@ namespace davinci{
             : coord(c), vtxRank(vr), triangleIdx(ti){};
 
         friend int  compare(const void *pa, const void *pb);
-        friend bool comparator(const VertexToTriangle<T>& a, const VertexToTriangle<T>& b){ return a.coord < b.coord; }
+        friend bool comparator(const VertexToTriangle<T>& a, const VertexToTriangle<T>& b);
 
     };
 
@@ -60,6 +60,11 @@ namespace davinci{
                 return 1;
         }
 
+    }
+
+    template<class T>
+    bool comparator(const VertexToTriangle<T>& a, const VertexToTriangle<T>& b){
+        return a.coord < b.coord;
     }
 
     template<class T>

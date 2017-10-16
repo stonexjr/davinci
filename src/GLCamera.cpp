@@ -23,14 +23,12 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //UPDATED: 2014-05-06
 #if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
+#include <OpenGL/gl3.h>
 #else
 #include <GL/glew.h>
 #endif
 #include "GLCamera.h"
-#include <GL/glu.h>
+//#include <GL/glu.h>
 #include <GL/freeglut.h>
 #include "constant.h"
 #include "GLError.h"

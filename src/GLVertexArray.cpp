@@ -21,6 +21,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #include <iostream>
+#include <GL/glew.h>
 #include "GLVertexArray.h"
 
 namespace davinci{

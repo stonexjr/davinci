@@ -36,10 +36,19 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 #include <ft2build.h>
 #include "vec2i.h"
 
+#if defined(__APPLE__) || defined(MACOSX)
+
+#include <freetype2/freetype/freetype.h>
+#include <freetype2/freetype/ftglyph.h>
+#include <freetype2/freetype/ftoutln.h>
+#include <freetype2/freetype/fttrigon.h>
+
+#else
 #include <freetype.h>
 #include <ftglyph.h>
 #include <ftoutln.h>
 #include <fttrigon.h>
+#endif
 
 namespace freetype_mod {
 

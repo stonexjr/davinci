@@ -20,7 +20,9 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include <stdio.h>
+//#include <stdio.h>
+#include <cstdio>
+#include <GL/glew.h>
 #include "GLFrameBufferObject.h"
 #include "GLError.h"
 #ifdef ENABLE_QT

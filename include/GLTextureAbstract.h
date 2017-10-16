@@ -28,9 +28,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 #define  _GL_TEXUTRE_ABSTRACTION_H
 
 #if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
+#include <OpenGL/gl3.h>
 #else
 #include <GL/glew.h>
 #endif
@@ -84,8 +82,8 @@ namespace davinci{
 		//texture pixel, please replace GL_MODULATE with GL_DECAL. 
 	public:
         //If you are using fix pipeline of OpenGL for texture mapping. Make sure
-        //to call glEnable(GL_TEXTURE_XD) before or after callling bindTexture();
-		virtual void   bindTexture(GLenum mode=GL_MODULATE);
+        //to call glEnable(GL_TEXTURE_XD) and glDisable(GL_TEXTURE_XD) before or after bindTexture() respectively;
+		virtual void   bindTexture();
         //If you are using fix pipeline of OpenGL for texture mapping. Make sure
         //to call glDisable(GL_TEXTURE_XD) before or after callling unbindTexture();
 		virtual void   unbindTexture();

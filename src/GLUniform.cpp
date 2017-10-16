@@ -20,14 +20,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
-#else
 #include <GL/glew.h>
-#endif
-
 #include "GLError.h"
 #include "GLUniform.h"
 #include "GLTextureAbstract.h"

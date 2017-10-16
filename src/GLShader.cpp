@@ -24,6 +24,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <GL/glew.h>
 #include "vec2f.h"
 #include "vec3f.h"
 #include "vec4f.h"

@@ -23,9 +23,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 #ifndef _GLRENDERBUFFEROBJECT_H_
 #define _GLRENDERBUFFEROBJECT_H_
 #if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
+#include <OpenGl/gl3.h>
 #else
 #include <GL/glew.h>
 #endif

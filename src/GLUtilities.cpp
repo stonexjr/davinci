@@ -24,13 +24,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 //CREATED: 2014-03-03
 //UPDATED: 2014-08-28
 
-#if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
-#else
 #include <GL/glew.h>
-#endif
 #include "GL/freeglut.h"
 #include "vec4i.h"
 #include "BBox.h"

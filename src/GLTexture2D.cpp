@@ -20,10 +20,12 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#include <GL/glew.h>
 #include "GLTexture2D.h"
 #include "GLError.h"
 #include <sstream>
 #include <iostream>
+
 #ifdef ENABLE_QT
 #include <QGLWidget>
 #include <QFile>
@@ -172,9 +174,9 @@ void GLTexture2d::generateMipMap(GLint qualityHint/*GL_FASTEST*/)
     unbindTexture();
 }
 
-void GLTexture2d::bindTexture( GLenum mode/*=GL_MODULATE*/ )
+void GLTexture2d::bindTexture()
 {
-    GLTextureAbstract::bindTexture(mode);
+    GLTextureAbstract::bindTexture();
     if (useMipmap())
     {
         glTexParameteri(getTarget(), GL_TEXTURE_MIN_FILTER, m_minFilter);

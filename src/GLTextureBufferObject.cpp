@@ -22,6 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <iostream>
 #include <sstream>
+#include <GL/glew.h>
 #include "GLTextureBufferObject.h"
 #include "GLError.h"
 using namespace davinci;
@@ -86,7 +87,7 @@ void davinci::GLTextureBufferObject::unbindImage()
 	releaseImgUnitId();
 }
 
-void davinci::GLTextureBufferObject::bindTexture(GLenum mode /*= GL_MODULATE*/)
+void davinci::GLTextureBufferObject::bindTexture()
 {
 	//GLTextureAbstract::bind();
 	if (m_texUnitId != -1)

@@ -46,7 +46,7 @@ public:
 	~GLTextureBufferObject(void);
 	void deleteBuffer();
 	void upload(GLsizeiptr totalSizeInBytes, GLsizeiptr texelCount, const GLvoid* data);
-	virtual void bindTexture(GLenum mode = GL_MODULATE);
+	virtual void bindTexture();
 	virtual void unbindTexture();
 	virtual void bindImage();
 	virtual void unbindImage();

@@ -21,14 +21,12 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
-#include <GLUT/glut.h>
+#include <OpenGL/gl3.h>
 #else
 #include <GL/glew.h>
-#include <GL/freeglut.h>
 #endif
+
+#include <GL/freeglut.h>
 
 #include "GLFont.h"
 

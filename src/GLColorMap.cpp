@@ -20,6 +20,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#include <GL/glew.h>
 #include "GLColorMap.h"
 #include "GLUtilities.h"
 #include "GLError.h"
@@ -216,7 +217,8 @@ void GLColorMap::draw()
         m_shaderRef->UseShaders();
     }
 
-    m_tex1d->bindTexture(GL_DECAL);
+    //m_tex1d->bindTexture(GL_DECAL);
+    m_tex1d->bindTexture();
 
     GLenum texUnit = m_tex1d->getTextureUnitId()+GL_TEXTURE0;
     GLUtilities::glBegin2DCoords(viewport[2], viewport[3]);

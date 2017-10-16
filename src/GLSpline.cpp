@@ -21,13 +21,12 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
+#include <OpenGL/gl3.h>
 #else
 #include <GL/glew.h>
 #endif
-#include <stdlib.h>
+//#include <stdlib.h>
+#include <cstdlib>
 #include <fstream>
 #include <GL/freeglut.h>
 #include "GLSpline.h"

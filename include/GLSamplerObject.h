@@ -27,14 +27,6 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 #ifndef _GL_SAMPLEROBJECT_H_
 #define  _GL_SAMPLEROBJECT_H_
 
-#if defined(__APPLE__) || defined(MACOSX)
-#include <gl.h>
-#include <gl3.h>
-#include <OpenGL.h>
-#else
-#include <GL/glew.h>
-#endif
-
 #include <memory>
 
 namespace davinci{
