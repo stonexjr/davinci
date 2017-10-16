@@ -25,11 +25,6 @@ Under Mac OS X these dependencies can be installed using
     brew cask install cmake (note that `brew install cmake` only includes the CLI version)
     brew install glew
     brew install freeglut
-    brew tap homebrew/science
-    brew install netcdf
-    brew install cdo
-    brew install nco
-    brew install ncview
 
 ## Compiling Source Code
 Building from the source code through CMake is easy:
