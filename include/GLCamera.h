@@ -22,7 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //CREATED: 2013-11-25
-//UPDATED: 2014-02-07
+//UPDATED: 2017-10-15
 #ifndef _GL_CAMERA_H_
 #define _GL_CAMERA_H_
 #pragma once

@@ -22,7 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //CREATED: 2013-10-23
-//UPDATED: 2015-06-13
+//UPDATED: 2017-10-15
 
 #ifndef _GL_VERTEX_ARRAY_H_
 #define _GL_VERTEX_ARRAY_H_

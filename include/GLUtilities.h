@@ -22,7 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //CREATED: 2014-03-03
-//UPDATED: 2014-04-30
+//UPDATED: 2017-10-15
 #ifndef _GL_UTILITIES_H_
 #define  _GL_UTILITIES_H_
 

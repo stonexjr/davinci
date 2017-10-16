@@ -22,7 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //CREATED: 2013-10-25
-//UPDATED: 2014-01-23
+//UPDATED: 2017-10-15
 
 #ifndef _GL_TEXUTRE2D_H_
 #define  _GL_TEXUTRE2D_H_

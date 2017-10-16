@@ -22,7 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //CREATED: 2014-10-30
-//UPDATED: 2015-05-23
+//UPDATED: 2017-10-15
 
 #ifndef _GLUNIFORM_H_
 #define _GLUNIFORM_H_

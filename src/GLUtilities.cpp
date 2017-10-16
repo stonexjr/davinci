@@ -22,7 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //CREATED: 2014-03-03
-//UPDATED: 2014-08-28
+//UPDATED: 2017-10-15
 
 #include <GL/glew.h>
 #include "GL/freeglut.h"

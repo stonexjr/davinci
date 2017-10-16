@@ -22,7 +22,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
 //CREATED: 2015-03-08
-//UPDATED: 2015-03-08
+//UPDATED: 2017-10-15
 #ifndef _GL_TextureBufferObject_H_
 #define _GL_TextureBufferObject_H_
 #pragma once

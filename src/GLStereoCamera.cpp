@@ -21,7 +21,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 //AUTHOR: Jinrong Xie (stonexjr at gmail.com)
-//UPDATED: 2015-05-09
+//UPDATED: 2017-10-15
 #if defined(__APPLE__) || defined(MACOSX)
 #include <OpenGL/gl3.h>
 #else
